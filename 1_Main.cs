@@ -7,16 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Checador
 {
     public partial class Main : Form
     {
-    
+        
         public Main()
         {
             InitializeComponent();
             reloj.Start();
+            textBoxMensaje.Text = ultimaLinea("MENS_ELYON.elyon");
+            textBoxAvisos.Text = ultimaLinea("AVI_ELYON.elyon");
+            
+        }
+
+        private string ultimaLinea(string archivo)
+        {
+            string texto = "";
+            string textoCompleto = "";
+            using (StreamReader sr = new StreamReader(archivo))    //CALCULA EL TAMAÑO DE LINEAS DEL ARCHIVO.
+                textoCompleto = sr.ReadToEnd();
+
+            string[] textoLineas = textoCompleto.Split('\n');
+            for (int i = 0; i < textoLineas.Length; i++)
+            {
+                string[] textoSeparado = textoLineas[i].Split('|');
+                if (!string.IsNullOrWhiteSpace(textoSeparado[0])) texto = textoSeparado[0];
+            }
+            return texto;
         }
 
         private void Fondo_Load(object sender, EventArgs e)
@@ -337,7 +357,7 @@ namespace Checador
             }
             return false;
         }
-
+        
     }
 
 

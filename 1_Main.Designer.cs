@@ -32,11 +32,10 @@
             this.reloj = new System.Windows.Forms.Timer(this.components);
             this.radioButtonInformacion = new System.Windows.Forms.RadioButton();
             this.buttonSalida = new System.Windows.Forms.Button();
-            this.labelMensaje = new System.Windows.Forms.Label();
             this.labelContraseña = new System.Windows.Forms.Label();
             this.labelUsuario = new System.Windows.Forms.Label();
             this.labelAvisoTexto = new System.Windows.Forms.Label();
-            this.labelAvisosLabel = new System.Windows.Forms.Label();
+            this.labelTituloAvisos = new System.Windows.Forms.Label();
             this.radioButtonComidaSalida = new System.Windows.Forms.RadioButton();
             this.radioButtonComidaEntrada = new System.Windows.Forms.RadioButton();
             this.radioButtonSalida = new System.Windows.Forms.RadioButton();
@@ -46,6 +45,8 @@
             this.textBoxContraseña = new System.Windows.Forms.TextBox();
             this.textBoxUsuario = new System.Windows.Forms.TextBox();
             this.Hora = new System.Windows.Forms.Label();
+            this.textBoxAvisos = new System.Windows.Forms.TextBox();
+            this.textBoxMensaje = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // reloj
@@ -55,9 +56,10 @@
             // radioButtonInformacion
             // 
             this.radioButtonInformacion.AutoSize = true;
-            this.radioButtonInformacion.Location = new System.Drawing.Point(144, 213);
+            this.radioButtonInformacion.Location = new System.Drawing.Point(220, 270);
+            this.radioButtonInformacion.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonInformacion.Name = "radioButtonInformacion";
-            this.radioButtonInformacion.Size = new System.Drawing.Size(80, 17);
+            this.radioButtonInformacion.Size = new System.Drawing.Size(102, 21);
             this.radioButtonInformacion.TabIndex = 50;
             this.radioButtonInformacion.TabStop = true;
             this.radioButtonInformacion.Text = "Información";
@@ -65,86 +67,86 @@
             // 
             // buttonSalida
             // 
-            this.buttonSalida.Location = new System.Drawing.Point(16, 190);
+            this.buttonSalida.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonSalida.Location = new System.Drawing.Point(49, 242);
+            this.buttonSalida.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSalida.Name = "buttonSalida";
-            this.buttonSalida.Size = new System.Drawing.Size(75, 23);
+            this.buttonSalida.Size = new System.Drawing.Size(100, 28);
             this.buttonSalida.TabIndex = 49;
             this.buttonSalida.Text = "Salida";
             this.buttonSalida.UseVisualStyleBackColor = true;
             this.buttonSalida.Click += new System.EventHandler(this.buttonSalida_Click);
             // 
-            // labelMensaje
-            // 
-            this.labelMensaje.AutoSize = true;
-            this.labelMensaje.Location = new System.Drawing.Point(132, 57);
-            this.labelMensaje.Name = "labelMensaje";
-            this.labelMensaje.Size = new System.Drawing.Size(47, 13);
-            this.labelMensaje.TabIndex = 48;
-            this.labelMensaje.Text = "Mensaje";
-            // 
             // labelContraseña
             // 
             this.labelContraseña.AutoSize = true;
-            this.labelContraseña.Location = new System.Drawing.Point(28, 128);
+            this.labelContraseña.Location = new System.Drawing.Point(65, 166);
+            this.labelContraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelContraseña.Name = "labelContraseña";
-            this.labelContraseña.Size = new System.Drawing.Size(61, 13);
+            this.labelContraseña.Size = new System.Drawing.Size(81, 17);
             this.labelContraseña.TabIndex = 47;
             this.labelContraseña.Text = "Contraseña";
             // 
             // labelUsuario
             // 
             this.labelUsuario.AutoSize = true;
-            this.labelUsuario.Location = new System.Drawing.Point(28, 98);
+            this.labelUsuario.Location = new System.Drawing.Point(65, 129);
+            this.labelUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelUsuario.Name = "labelUsuario";
-            this.labelUsuario.Size = new System.Drawing.Size(43, 13);
+            this.labelUsuario.Size = new System.Drawing.Size(57, 17);
             this.labelUsuario.TabIndex = 46;
             this.labelUsuario.Text = "Usuario";
             // 
             // labelAvisoTexto
             // 
             this.labelAvisoTexto.AutoSize = true;
-            this.labelAvisoTexto.Location = new System.Drawing.Point(80, 244);
+            this.labelAvisoTexto.Location = new System.Drawing.Point(107, 300);
+            this.labelAvisoTexto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAvisoTexto.Name = "labelAvisoTexto";
-            this.labelAvisoTexto.Size = new System.Drawing.Size(0, 13);
+            this.labelAvisoTexto.Size = new System.Drawing.Size(0, 17);
             this.labelAvisoTexto.TabIndex = 44;
             // 
-            // labelAvisosLabel
+            // labelTituloAvisos
             // 
-            this.labelAvisosLabel.AutoSize = true;
-            this.labelAvisosLabel.Location = new System.Drawing.Point(22, 244);
-            this.labelAvisosLabel.Name = "labelAvisosLabel";
-            this.labelAvisosLabel.Size = new System.Drawing.Size(41, 13);
-            this.labelAvisosLabel.TabIndex = 43;
-            this.labelAvisosLabel.Text = "Avisos:";
+            this.labelTituloAvisos.AutoSize = true;
+            this.labelTituloAvisos.Location = new System.Drawing.Point(57, 308);
+            this.labelTituloAvisos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTituloAvisos.Name = "labelTituloAvisos";
+            this.labelTituloAvisos.Size = new System.Drawing.Size(53, 17);
+            this.labelTituloAvisos.TabIndex = 43;
+            this.labelTituloAvisos.Text = "Avisos:";
             // 
             // radioButtonComidaSalida
             // 
             this.radioButtonComidaSalida.AutoSize = true;
-            this.radioButtonComidaSalida.Location = new System.Drawing.Point(172, 190);
+            this.radioButtonComidaSalida.Location = new System.Drawing.Point(266, 243);
+            this.radioButtonComidaSalida.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonComidaSalida.Name = "radioButtonComidaSalida";
-            this.radioButtonComidaSalida.Size = new System.Drawing.Size(92, 17);
+            this.radioButtonComidaSalida.Size = new System.Drawing.Size(105, 21);
             this.radioButtonComidaSalida.TabIndex = 42;
             this.radioButtonComidaSalida.TabStop = true;
-            this.radioButtonComidaSalida.Text = "Comida Salida";
+            this.radioButtonComidaSalida.Text = "Ida a Comer";
             this.radioButtonComidaSalida.UseVisualStyleBackColor = true;
             // 
             // radioButtonComidaEntrada
             // 
             this.radioButtonComidaEntrada.AutoSize = true;
-            this.radioButtonComidaEntrada.Location = new System.Drawing.Point(172, 167);
+            this.radioButtonComidaEntrada.Location = new System.Drawing.Point(266, 214);
+            this.radioButtonComidaEntrada.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonComidaEntrada.Name = "radioButtonComidaEntrada";
-            this.radioButtonComidaEntrada.Size = new System.Drawing.Size(100, 17);
+            this.radioButtonComidaEntrada.Size = new System.Drawing.Size(148, 21);
             this.radioButtonComidaEntrada.TabIndex = 41;
             this.radioButtonComidaEntrada.TabStop = true;
-            this.radioButtonComidaEntrada.Text = "Comida Entrada";
+            this.radioButtonComidaEntrada.Text = "Regreso de Comer";
             this.radioButtonComidaEntrada.UseVisualStyleBackColor = true;
             // 
             // radioButtonSalida
             // 
             this.radioButtonSalida.AutoSize = true;
-            this.radioButtonSalida.Location = new System.Drawing.Point(113, 190);
+            this.radioButtonSalida.Location = new System.Drawing.Point(179, 242);
+            this.radioButtonSalida.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonSalida.Name = "radioButtonSalida";
-            this.radioButtonSalida.Size = new System.Drawing.Size(54, 17);
+            this.radioButtonSalida.Size = new System.Drawing.Size(68, 21);
             this.radioButtonSalida.TabIndex = 40;
             this.radioButtonSalida.TabStop = true;
             this.radioButtonSalida.Text = "Salida";
@@ -153,9 +155,10 @@
             // radioButtonEntrada
             // 
             this.radioButtonEntrada.AutoSize = true;
-            this.radioButtonEntrada.Location = new System.Drawing.Point(113, 167);
+            this.radioButtonEntrada.Location = new System.Drawing.Point(179, 214);
+            this.radioButtonEntrada.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonEntrada.Name = "radioButtonEntrada";
-            this.radioButtonEntrada.Size = new System.Drawing.Size(62, 17);
+            this.radioButtonEntrada.Size = new System.Drawing.Size(79, 21);
             this.radioButtonEntrada.TabIndex = 39;
             this.radioButtonEntrada.TabStop = true;
             this.radioButtonEntrada.Text = "Entrada";
@@ -163,9 +166,11 @@
             // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(16, 161);
+            this.buttonAceptar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonAceptar.Location = new System.Drawing.Point(49, 206);
+            this.buttonAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAceptar.Name = "buttonAceptar";
-            this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAceptar.Size = new System.Drawing.Size(100, 28);
             this.buttonAceptar.TabIndex = 38;
             this.buttonAceptar.Text = "Aceptar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
@@ -174,54 +179,85 @@
             // Dia_Fecha
             // 
             this.Dia_Fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Dia_Fecha.Location = new System.Drawing.Point(12, 9);
+            this.Dia_Fecha.Location = new System.Drawing.Point(44, 19);
+            this.Dia_Fecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Dia_Fecha.Name = "Dia_Fecha";
-            this.Dia_Fecha.Size = new System.Drawing.Size(90, 28);
+            this.Dia_Fecha.Size = new System.Drawing.Size(120, 34);
             this.Dia_Fecha.TabIndex = 37;
             this.Dia_Fecha.Text = "12/12/12";
             this.Dia_Fecha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxContraseña
             // 
-            this.textBoxContraseña.Location = new System.Drawing.Point(95, 121);
+            this.textBoxContraseña.Location = new System.Drawing.Point(155, 157);
+            this.textBoxContraseña.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxContraseña.Name = "textBoxContraseña";
             this.textBoxContraseña.PasswordChar = '•';
-            this.textBoxContraseña.Size = new System.Drawing.Size(157, 20);
+            this.textBoxContraseña.Size = new System.Drawing.Size(208, 22);
             this.textBoxContraseña.TabIndex = 36;
             // 
             // textBoxUsuario
             // 
-            this.textBoxUsuario.Location = new System.Drawing.Point(95, 91);
+            this.textBoxUsuario.Location = new System.Drawing.Point(155, 120);
+            this.textBoxUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxUsuario.Name = "textBoxUsuario";
-            this.textBoxUsuario.Size = new System.Drawing.Size(157, 20);
+            this.textBoxUsuario.Size = new System.Drawing.Size(208, 22);
             this.textBoxUsuario.TabIndex = 35;
             // 
             // Hora
             // 
             this.Hora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Hora.Location = new System.Drawing.Point(206, 9);
+            this.Hora.Location = new System.Drawing.Point(303, 19);
+            this.Hora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Hora.Name = "Hora";
-            this.Hora.Size = new System.Drawing.Size(95, 27);
+            this.Hora.Size = new System.Drawing.Size(127, 33);
             this.Hora.TabIndex = 34;
             this.Hora.Text = "01:00:00";
             this.Hora.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // textBoxAvisos
+            // 
+            this.textBoxAvisos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxAvisos.Location = new System.Drawing.Point(88, 328);
+            this.textBoxAvisos.Multiline = true;
+            this.textBoxAvisos.Name = "textBoxAvisos";
+            this.textBoxAvisos.Size = new System.Drawing.Size(295, 64);
+            this.textBoxAvisos.TabIndex = 51;
+            this.textBoxAvisos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxMensaje
+            // 
+            this.textBoxMensaje.AccessibleDescription = "AccedeTextoMensaje";
+            this.textBoxMensaje.AccessibleName = "TextoMensaje";
+            this.textBoxMensaje.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.textBoxMensaje.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxMensaje.Location = new System.Drawing.Point(73, 74);
+            this.textBoxMensaje.Multiline = true;
+            this.textBoxMensaje.Name = "textBoxMensaje";
+            this.textBoxMensaje.Size = new System.Drawing.Size(334, 32);
+            this.textBoxMensaje.TabIndex = 52;
+            this.textBoxMensaje.Tag = "MensajeText";
+            this.textBoxMensaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackgroundImage = global::Checador.Properties.Resources.ventanas_09;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(309, 286);
+            this.CancelButton = this.buttonSalida;
+            this.ClientSize = new System.Drawing.Size(467, 411);
             this.ControlBox = false;
+            this.Controls.Add(this.textBoxMensaje);
+            this.Controls.Add(this.textBoxAvisos);
             this.Controls.Add(this.radioButtonInformacion);
             this.Controls.Add(this.buttonSalida);
-            this.Controls.Add(this.labelMensaje);
             this.Controls.Add(this.labelContraseña);
             this.Controls.Add(this.labelUsuario);
             this.Controls.Add(this.labelAvisoTexto);
-            this.Controls.Add(this.labelAvisosLabel);
+            this.Controls.Add(this.labelTituloAvisos);
             this.Controls.Add(this.radioButtonComidaSalida);
             this.Controls.Add(this.radioButtonComidaEntrada);
             this.Controls.Add(this.radioButtonSalida);
@@ -231,6 +267,8 @@
             this.Controls.Add(this.textBoxContraseña);
             this.Controls.Add(this.textBoxUsuario);
             this.Controls.Add(this.Hora);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
@@ -249,11 +287,10 @@
         private System.Windows.Forms.Timer reloj;
         private System.Windows.Forms.RadioButton radioButtonInformacion;
         private System.Windows.Forms.Button buttonSalida;
-        private System.Windows.Forms.Label labelMensaje;
         private System.Windows.Forms.Label labelContraseña;
         private System.Windows.Forms.Label labelUsuario;
         private System.Windows.Forms.Label labelAvisoTexto;
-        private System.Windows.Forms.Label labelAvisosLabel;
+        private System.Windows.Forms.Label labelTituloAvisos;
         private System.Windows.Forms.RadioButton radioButtonComidaSalida;
         private System.Windows.Forms.RadioButton radioButtonComidaEntrada;
         private System.Windows.Forms.RadioButton radioButtonSalida;
@@ -263,5 +300,7 @@
         private System.Windows.Forms.TextBox textBoxContraseña;
         private System.Windows.Forms.TextBox textBoxUsuario;
         private System.Windows.Forms.Label Hora;
+        private System.Windows.Forms.TextBox textBoxAvisos;
+        private System.Windows.Forms.TextBox textBoxMensaje;
     }
 }

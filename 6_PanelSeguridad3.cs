@@ -12,9 +12,11 @@ namespace Checador
 {
     public partial class PanelSeguridad3 : Form
     {
+
         public PanelSeguridad3()
         {
             InitializeComponent();
+ 
         }
 
         private void buttonCrear_Click(object sender, EventArgs e)
@@ -35,6 +37,13 @@ namespace Checador
         {
             PanelReportes panel = new PanelReportes();
             panel.Show();
+        }
+
+        private void buttonAvisos_Click(object sender, EventArgs e)
+        {
+            PanelAvisos panel = new PanelAvisos();
+            panel.Show();
+            
         }
 
     }
