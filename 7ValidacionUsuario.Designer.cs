@@ -43,11 +43,11 @@
             // labelUsuario
             // 
             this.labelUsuario.AutoSize = true;
-            this.labelUsuario.Location = new System.Drawing.Point(11, 15);
+            this.labelUsuario.Location = new System.Drawing.Point(40, 19);
             this.labelUsuario.Name = "labelUsuario";
-            this.labelUsuario.Size = new System.Drawing.Size(82, 13);
+            this.labelUsuario.Size = new System.Drawing.Size(43, 13);
             this.labelUsuario.TabIndex = 7;
-            this.labelUsuario.Text = "Usuario a Editar";
+            this.labelUsuario.Text = "Usuario";
             // 
             // buttonAceptar
             // 

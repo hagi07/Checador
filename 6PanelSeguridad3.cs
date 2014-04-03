@@ -12,21 +12,23 @@ namespace Checador
 {
     public partial class PanelSeguridad3 : Form
     {
-        public PanelSeguridad3()
+        private string usuario;
+        public PanelSeguridad3(string usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
         }
 
         private void buttonCrear_Click(object sender, EventArgs e)
         {
-            PanelRegistroDatosLaboral panel = new PanelRegistroDatosLaboral(0,"Nada");
+            PanelRegistroDatosLaboral panel = new PanelRegistroDatosLaboral("Crear",usuario,"Alto");
             panel.Show();
 
         }
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            PanelValidacionUsuario validation = new PanelValidacionUsuario();
+            PanelValidacionUsuario validation = new PanelValidacionUsuario("Editar",usuario,"Alto");
             validation.Show();
 
         }
@@ -34,6 +36,12 @@ namespace Checador
         private void buttonReportes_Click(object sender, EventArgs e)
         {
             PanelReportes panel = new PanelReportes();
+            panel.Show();
+        }
+
+        private void buttonAvisos_Click(object sender, EventArgs e)
+        {
+            PanelAvisos panel = new PanelAvisos();
             panel.Show();
         }
 

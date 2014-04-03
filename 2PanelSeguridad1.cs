@@ -12,9 +12,17 @@ namespace Checador
 {
     public partial class PanelSeguridad1 : Form
     {
-        public PanelSeguridad1()
+        private string usu;
+        public PanelSeguridad1(string usuario)
         {
             InitializeComponent();
+            usu = usuario;
+        }
+
+        private void buttonAceptar_Click(object sender, EventArgs e)
+        {
+            
+            
         }
     }
 }

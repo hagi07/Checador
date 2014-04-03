@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Checador
 {
-    public partial class PanelSeguridad2 : Form
+    public partial class PanelCorreo : Form
     {
-        private string usuario;
-        public PanelSeguridad2(string usu)
+        public PanelCorreo()
         {
             InitializeComponent();
-            usuario = usu;
-        }
-
-        private void buttonCrear_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

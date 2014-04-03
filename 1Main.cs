@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Checador
 {
@@ -17,6 +18,25 @@ namespace Checador
         {
             InitializeComponent();
             reloj.Start();
+            labelAvisoTexto.Text = ultimaLinea("AVI_ELYON.elyon");
+            labelMensaje.Text = ultimaLinea("MENS_ELYON.elyon");
+        }
+
+
+        private string ultimaLinea(string archivo)
+        {
+            string texto = "";
+            string textoCompleto = "";
+            using (StreamReader sr = new StreamReader(archivo))    //CALCULA EL TAMAÑO DE LINEAS DEL ARCHIVO.
+                textoCompleto = sr.ReadToEnd();
+
+            string[] textoLineas = textoCompleto.Split('\n');
+            for (int i = 0; i < textoLineas.Length; i++)
+            {
+                string[] textoSeparado = textoLineas[i].Split('|');
+                if (!string.IsNullOrWhiteSpace(textoSeparado[0])) texto = textoSeparado[0];
+            }
+            return texto;
         }
 
         private void Fondo_Load(object sender, EventArgs e)
@@ -234,19 +254,18 @@ namespace Checador
                             {
                                 if (y[3] == "Bajo")
                                 {
-                                    PanelSeguridad1 panel = new PanelSeguridad1();
+                                    PanelSeguridad1 panel = new PanelSeguridad1(textBoxUsuario.Text);
                                     panel.Show();
                                 }
 
                                 if (y[3] == "Medio")
                                 {
-                                    PanelSeguridad2 panel = new PanelSeguridad2();
+                                    PanelSeguridad2 panel = new PanelSeguridad2(textBoxUsuario.Text);
                                     panel.Show();
                                 }
 
                                 if (y[3] == "Alto")
                                 {
-
                                     PanelSeguridad3 panel = new PanelSeguridad3();
                                     panel.Show();
                                 }

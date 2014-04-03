@@ -72,6 +72,7 @@
             this.buttonAvisos.TabIndex = 3;
             this.buttonAvisos.Text = "Avisos";
             this.buttonAvisos.UseVisualStyleBackColor = true;
+            this.buttonAvisos.Click += new System.EventHandler(this.buttonAvisos_Click);
             // 
             // PanelSeguridad3
             // 
@@ -83,7 +84,7 @@
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonCrear);
             this.Name = "PanelSeguridad3";
-            this.Text = "PanelSeguridad3";
+            this.Text = "Administración";
             this.TopMost = true;
             this.ResumeLayout(false);
 

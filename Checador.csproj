@@ -65,6 +65,18 @@
     <Compile Include="0Fondo.Designer.cs">
       <DependentUpon>0Fondo.cs</DependentUpon>
     </Compile>
+    <Compile Include="10_PanelAvisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="10_PanelAvisos.Designer.cs">
+      <DependentUpon>10_PanelAvisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="11Correo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="11Correo.Designer.cs">
+      <DependentUpon>11Correo.cs</DependentUpon>
+    </Compile>
     <Compile Include="1Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +135,12 @@
     </Compile>
     <EmbeddedResource Include="0Fondo.resx">
       <DependentUpon>0Fondo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="10_PanelAvisos.resx">
+      <DependentUpon>10_PanelAvisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="11Correo.resx">
+      <DependentUpon>11Correo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="1Main.resx">
       <DependentUpon>1Main.cs</DependentUpon>

@@ -20,7 +20,8 @@ namespace Checador
 
         private void buttonDatos_Click(object sender, EventArgs e)
         {
-
+            PanelValidacionUsuario panel = new PanelValidacionUsuario("P","P");
+            panel.Show();
         }
 
         private void buttonQuincena_Click(object sender, EventArgs e)

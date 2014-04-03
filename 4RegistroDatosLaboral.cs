@@ -12,29 +12,31 @@ namespace Checador
 {
     public partial class PanelRegistroDatosLaboral : Form
     {
-        private int opcion;
+        private string opcion;
         private string usuario;
+        private string nivel;
 
-        public PanelRegistroDatosLaboral(int op, string usu)
+        public PanelRegistroDatosLaboral(string op, string usu, string n)
         {
             InitializeComponent();
             opcion = op;
             usuario = usu;
+            nivel = n;
 
-            if (opcion == 1)
+            if (opcion == "Editar")
                 reordenarDatos();
+
         }
 
         private void buttonSiguiente_Click(object sender, EventArgs e)
         {
-            if (opcion == 0)
+            if (opcion == "Crear")
             {
                     System.IO.StreamWriter file = new System.IO.StreamWriter("BDL_ELYON.elyon", true);
                     file.WriteLine(obtenerDatos());
                     file.Flush();
                     file.Close();
-
-
+                 
                     string seguridad = "";
                     if (radioButtonSeguridadAlto.Checked == true) seguridad = "Alto";
                     if (radioButtonSeguridadMedio.Checked == true) seguridad = "Medio";
@@ -46,18 +48,23 @@ namespace Checador
                     file2.Flush();
                     file2.Close();
 
-                    PanelDatosPersonal panel = new PanelDatosPersonal(opcion,textBoxUsuario.Text, textBoxNombre.Text, textBoxEmailLaboral.Text, textBoxEmailPersonal.Text);
+                    PanelDatosPersonal panel = new PanelDatosPersonal(opcion,nivel,textBoxUsuario.Text, textBoxNombre.Text, textBoxEmailLaboral.Text, textBoxEmailPersonal.Text);
                     panel.Show();
                     this.Close();
                 }
 
-            if (opcion == 1)
+            if (opcion == "Editar")
             {
+                string seguridad = "";
+                if (radioButtonSeguridadAlto.Checked == true) seguridad = "Alto";
+                if (radioButtonSeguridadMedio.Checked == true) seguridad = "Medio";
+                if (radioButtonSeguridadBajo.Checked == true) seguridad = "Bajo";
                 editarArchivo(0, obtenerDatos());
-                PanelDatosPersonal panel = new PanelDatosPersonal(opcion, textBoxUsuario.Text, textBoxNombre.Text, textBoxEmailLaboral.Text, textBoxEmailPersonal.Text);
+                editarArchivo(2, textBoxUsuario.Text + "|" + textBoxContraseña.Text + "|" + textBoxNombre.Text + "|" + seguridad + "|" + Environment.NewLine);
+                PanelDatosPersonal panel = new PanelDatosPersonal(opcion, nivel,textBoxUsuario.Text, textBoxNombre.Text, textBoxEmailLaboral.Text, textBoxEmailPersonal.Text);
                 panel.Show();
                 this.Close();
-            }
+            }         
         }
 
         private void reordenarDatos() {

@@ -14,8 +14,6 @@ C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.pd
 C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\bin\Debug\Checador.exe
 C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\bin\Debug\Checador.pdb
 C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.csprojResolveAssemblyReference.cache
-C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.Checador.resources
-C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.PanelAdministradorPassword.resources
 C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.Properties.Resources.resources
 C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.csproj.GenerateResource.Cache
 C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.PanelDatosPersonal.resources
@@ -98,3 +96,9 @@ C:\Users\Casa\Google Drive\Elyon\Checador\Checador 2010\Checador\Checador\obj\De
 C:\Users\Programacion\Google Drive\Elyon\Checador\Checador 2010\TestChecador\Checador\Checador\bin\Debug\Checador.exe.config
 C:\Users\Programacion\Google Drive\Elyon\Checador\Checador 2010\TestChecador\Checador\Checador\obj\Debug\Checador.exe
 C:\Users\Programacion\Google Drive\Elyon\Checador\Checador 2010\TestChecador\Checador\Checador\obj\Debug\Checador.pdb
+C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.Main.resources
+C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.PanelValidacionUsuario.resources
+C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.PanelReportes.resources
+C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.PanelFechaQuincenas.resources
+C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.PanelAvisos.resources
+C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.PanelCorreo.resources

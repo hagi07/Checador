@@ -13,10 +13,11 @@ namespace Checador
     public partial class PanelDatosPersonal : Form
     {
         private string usuario;
-        private int  opcion;
+        private string opcion;
+        private string nivel;
 
 
-        public PanelDatosPersonal(int opcion, string usuario, string nombre, string emailLaboral, string emailPersonal)
+        public PanelDatosPersonal(string opcion, string n, string usuario, string nombre, string emailLaboral, string emailPersonal)
         {
             InitializeComponent();
             
@@ -25,10 +26,13 @@ namespace Checador
             textBoxEmailLaboral.Text = emailLaboral;
             textBoxEmailPersonal.Text = emailPersonal;
             this.opcion = opcion;
+            nivel = n;
 
-            if (opcion == 1) {
+            if (opcion == "Editar") {
                 reordenarDatos();
             }
+
+
 
         }
 
@@ -92,7 +96,7 @@ namespace Checador
 
         private void buttonSiguiente_Click(object sender, EventArgs e)
         {
-            if (opcion == 0)
+            if (opcion == "Nuevo")
             {
                 if (textBoxNombre.Text == "" || (radioButtonMasculino.Checked == false && radioButtonFemenino.Checked == false))
                     MessageBox.Show("Es necesario llenar los campos de Nombre y Sexo");
@@ -111,7 +115,7 @@ namespace Checador
                     this.Close();
                 }
             }
-            if (opcion == 1) {
+            if (opcion == "Editar") {
                 string sexo = "";
                 if (radioButtonMasculino.Checked == true) sexo = "Masculino";
                 if (radioButtonFemenino.Checked == true) sexo = "Femenino";

@@ -66,6 +66,7 @@ namespace Checador
                     string text = textBoxMensaje.Text + "|";
                     file.WriteLine(text);
                 }
+            MessageBox.Show("Los cambios se aplicarán al día siguiente");
             this.Close();
         }
 
