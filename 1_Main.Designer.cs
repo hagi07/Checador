@@ -245,7 +245,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BackgroundImage = global::Checador.Properties.Resources.ventanas_09;
+//            this.BackgroundImage = global::Checador.Properties.Resources.ventanas_09;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.buttonSalida;
             this.ClientSize = new System.Drawing.Size(467, 411);

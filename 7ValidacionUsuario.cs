@@ -21,6 +21,20 @@ namespace Checador
             this.opcion = opcion;
             this.usuario = usuario;
             this.nivel = nivel;
+
+            System.IO.StreamReader fileReader = new System.IO.StreamReader("USU_ELYON.elyon");
+            string espacios = fileReader.ReadToEnd();
+            fileReader.Close();
+
+            string[] x = espacios.Split('\n');
+
+            for (int i = 0; i < x.Length; i++)
+            {
+                string[] y = x[i].Split('|');
+                listBox1.Items.Add(y[0]);
+            }
+
+
         }
 
         private void buttonAceptar_Click(object sender, EventArgs e)
@@ -36,22 +50,31 @@ namespace Checador
                 for (int i = 0; i < x.Length; i++)
                 {
                     string[] y = x[i].Split('|');
-                    if (y[0] == textBoxUsuario.Text)
+                    if (y[0] == listBox1.SelectedItem.ToString())
                     {
                         ok = true;
                     }
                 }
                 if (ok == true && opcion == "Nuevo")
                 {
-                    PanelRegistroDatosLaboral panel = new PanelRegistroDatosLaboral("Nuevo", textBoxUsuario.Text, nivel);
+                    PanelRegistroDatosLaboral panel = new PanelRegistroDatosLaboral("Nuevo", listBox1.SelectedItem.ToString(), nivel);
                     panel.Show();
                     this.Close();
                 }
 
                 if (ok == true && opcion == "Editar")
                 {
-                    MessageBox.Show("Aquí se mandaría el correo con la informacion del usuario seleccionado.");
-                    //CORREO!!!!
+                    if (nivel == "Alto") 
+                    { 
+                        PanelRegistroDatosLaboral panel = new PanelRegistroDatosLaboral("Editar",usuario, "Alto");
+                        panel.Show();
+                    }
+                    if (nivel == "Medio")
+                    {
+                        MessageBox.Show(listBox1.SelectedItem.ToString());
+                        PanelDatosPersonal panel = new PanelDatosPersonal("Editar", "Medio", usuario, listBox1.SelectedItem.ToString());
+                        panel.Show();
+                    }
                 }
                 if (ok == false) MessageBox.Show("Usuario No Encontrado.");
             

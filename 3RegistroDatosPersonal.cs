@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Mail;
 
 namespace Checador
 {
@@ -28,12 +29,23 @@ namespace Checador
             this.opcion = opcion;
             nivel = n;
 
-            if (opcion == "Editar") {
+            if (opcion == "Editar") 
+            {
                 reordenarDatos();
             }
+        }
 
+        public PanelDatosPersonal(string opcion, string n, string usuario, string nombre) 
+        {
+            this.usuario = usuario;
+            textBoxNombre.Text = nombre;
+            this.opcion = opcion;
+            nivel = n;
 
-
+            if (opcion == "Editar")
+            {
+                reordenarDatos();
+            }
         }
 
         private void reordenarDatos() {
@@ -96,7 +108,7 @@ namespace Checador
 
         private void buttonSiguiente_Click(object sender, EventArgs e)
         {
-            if (opcion == "Nuevo")
+            if (opcion == "Crear")
             {
                 if (textBoxNombre.Text == "" || (radioButtonMasculino.Checked == false && radioButtonFemenino.Checked == false))
                     MessageBox.Show("Es necesario llenar los campos de Nombre y Sexo");
@@ -123,6 +135,9 @@ namespace Checador
                 string text = usuario + "|" + textBoxNombre.Text + "|" + textBoxCURP.Text + "|" + textBoxRFC.Text + "|" + textBoxCelular.Text + "|" + textBoxTelefono.Text + "|" + textBoxDireccion.Text + "|" + sexo.ToString() + "|" + textBoxLugarDeNacimiento.Text + "|" + textBoxNacFecha1.Text + "|" + textBoxNacFecha2.Text + "|" + textBoxNacFecha3.Text + "|" + textBoxEdad.Text + "|" + textBoxEmailLaboral.Text + "|" + textBoxEmailPersonal.Text + "|" + textBoxTipoDeSangre.Text + "|" + textBoxNumeroDeEmergencia.Text + "|" + textBoxContactoDeEmergencia.Text + "|" + textBoxParentesco.Text + "|" + textBoxDireccionDelContacto.Text + "|" + textBoxOtrasOcupaciones.Text + "|" + textBoxOtrasOcupaciones.Text + "|" + textBoxEstadoCivil.Text + "|" + textBoxStatusFamiliar.Text + "|";
                     
                 editarArchivo(1, text);
+
+                if(nivel == "Medio")
+                    SMTPMail("renehagi@gmail.com", "Actividades", "Se realizó la actividad de edicion de usuario por " + usuario + ".", "general@elyongames.com", "develyon");
 
                 this.Close();
             }
@@ -167,8 +182,36 @@ namespace Checador
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-        } 
+        }
 
+        public void SMTPMail(string pDestino, string pAsunto, string pCuerpo, string pUsuario, string pPassword)
+        {
+            // Crear el Mail
+            using (System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage())
+            {
+                mail.To.Add(new System.Net.Mail.MailAddress(pDestino));
+                mail.From = new System.Net.Mail.MailAddress(pUsuario);
+                mail.Subject = pAsunto;
+                mail.SubjectEncoding = System.Text.Encoding.UTF8;
+                mail.Body = pCuerpo;
+                mail.BodyEncoding = System.Text.Encoding.UTF8;
+                mail.IsBodyHtml = false;
 
+                // Agregar el Adjunto si deseamos hacerlo
+                //mail.Attachments.Add(new Attachment(archivo));
+
+                // Configuración SMTP
+                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com", 587);
+
+                // Crear Credencial de Autenticacion
+                smtp.Credentials = new System.Net.NetworkCredential(pUsuario, pPassword);
+                smtp.EnableSsl = true;
+
+                try
+                { smtp.Send(mail); }
+                catch (Exception ex)
+                { throw ex; }
+            } // end using mail
+        } // end SMTPMail
     }
 }

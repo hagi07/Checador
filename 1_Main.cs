@@ -254,20 +254,19 @@ namespace Checador
                             {
                                 if (y[3] == "Bajo")
                                 {
-                                    PanelSeguridad1 panel = new PanelSeguridad1();
+                                    PanelSeguridad1 panel = new PanelSeguridad1(textBoxUsuario.Text);
                                     panel.Show();
                                 }
 
                                 if (y[3] == "Medio")
                                 {
-                                    PanelSeguridad2 panel = new PanelSeguridad2();
+                                    PanelSeguridad2 panel = new PanelSeguridad2(textBoxUsuario.Text);
                                     panel.Show();
                                 }
 
                                 if (y[3] == "Alto")
                                 {
-
-                                    PanelSeguridad3 panel = new PanelSeguridad3();
+                                    PanelSeguridad3 panel = new PanelSeguridad3(textBoxUsuario.Text);
                                     panel.Show();
                                 }
                             }

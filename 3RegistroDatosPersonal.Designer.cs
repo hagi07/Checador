@@ -61,7 +61,7 @@
             this.labelEmailPersonal = new System.Windows.Forms.Label();
             this.buttonImagenFirma = new System.Windows.Forms.Button();
             this.pictureBoxImagenFirma = new System.Windows.Forms.PictureBox();
-            this.buttonSiguiente = new System.Windows.Forms.Button();
+            this.buttonAceptar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.textBoxNumeroDeEmergencia = new System.Windows.Forms.TextBox();
             this.labelNumeroDeEmergencia = new System.Windows.Forms.Label();
@@ -358,15 +358,15 @@
             this.pictureBoxImagenFirma.TabIndex = 40;
             this.pictureBoxImagenFirma.TabStop = false;
             // 
-            // buttonSiguiente
+            // buttonAceptar
             // 
-            this.buttonSiguiente.Location = new System.Drawing.Point(332, 647);
-            this.buttonSiguiente.Name = "buttonSiguiente";
-            this.buttonSiguiente.Size = new System.Drawing.Size(75, 23);
-            this.buttonSiguiente.TabIndex = 42;
-            this.buttonSiguiente.Text = "Aceptar";
-            this.buttonSiguiente.UseVisualStyleBackColor = true;
-            this.buttonSiguiente.Click += new System.EventHandler(this.buttonSiguiente_Click);
+            this.buttonAceptar.Location = new System.Drawing.Point(332, 647);
+            this.buttonAceptar.Name = "buttonAceptar";
+            this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAceptar.TabIndex = 42;
+            this.buttonAceptar.Text = "Aceptar";
+            this.buttonAceptar.UseVisualStyleBackColor = true;
+            this.buttonAceptar.Click += new System.EventHandler(this.buttonSiguiente_Click);
             // 
             // buttonCancelar
             // 
@@ -532,7 +532,7 @@
             this.Controls.Add(this.textBoxNumeroDeEmergencia);
             this.Controls.Add(this.labelNumeroDeEmergencia);
             this.Controls.Add(this.buttonCancelar);
-            this.Controls.Add(this.buttonSiguiente);
+            this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.buttonImagenFirma);
             this.Controls.Add(this.pictureBoxImagenFirma);
             this.Controls.Add(this.textBoxEmailPersonal);
@@ -614,7 +614,7 @@
         private System.Windows.Forms.Label labelEmailPersonal;
         private System.Windows.Forms.Button buttonImagenFirma;
         private System.Windows.Forms.PictureBox pictureBoxImagenFirma;
-        private System.Windows.Forms.Button buttonSiguiente;
+        private System.Windows.Forms.Button buttonAceptar;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.TextBox textBoxNumeroDeEmergencia;
         private System.Windows.Forms.Label labelNumeroDeEmergencia;

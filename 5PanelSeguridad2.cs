@@ -21,7 +21,19 @@ namespace Checador
 
         private void buttonCrear_Click(object sender, EventArgs e)
         {
-            
+            PanelRegistroDatosLaboral panel = new PanelRegistroDatosLaboral("Crear", usuario, "Medio");
+            panel.Show();
+        }
+
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+            PanelValidacionUsuario panel = new PanelValidacionUsuario("Editar", usuario,"Medio");
+            panel.Show();
+        }
+
+        private void buttonAvisos_Click(object sender, EventArgs e)
+        {
+            PanelAvisos panel = new PanelAvisos(usuario,"Medio");
         }
     }
 }

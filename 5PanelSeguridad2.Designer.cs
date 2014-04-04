@@ -41,6 +41,7 @@
             this.buttonAvisos.TabIndex = 6;
             this.buttonAvisos.Text = "Avisos";
             this.buttonAvisos.UseVisualStyleBackColor = true;
+            this.buttonAvisos.Click += new System.EventHandler(this.buttonAvisos_Click);
             // 
             // buttonEditar
             // 
@@ -50,6 +51,7 @@
             this.buttonEditar.TabIndex = 5;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // buttonCrear
             // 

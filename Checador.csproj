@@ -71,17 +71,11 @@
     <Compile Include="10_PanelAvisos.Designer.cs">
       <DependentUpon>10_PanelAvisos.cs</DependentUpon>
     </Compile>
-    <Compile Include="11Correo.cs">
+    <Compile Include="1_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="11Correo.Designer.cs">
-      <DependentUpon>11Correo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="1Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="1Main.Designer.cs">
-      <DependentUpon>1Main.cs</DependentUpon>
+    <Compile Include="1_Main.Designer.cs">
+      <DependentUpon>1_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="4RegistroDatosLaboral.cs">
       <SubType>Form</SubType>
@@ -139,11 +133,8 @@
     <EmbeddedResource Include="10_PanelAvisos.resx">
       <DependentUpon>10_PanelAvisos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="11Correo.resx">
-      <DependentUpon>11Correo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="1Main.resx">
-      <DependentUpon>1Main.cs</DependentUpon>
+    <EmbeddedResource Include="1_Main.resx">
+      <DependentUpon>1_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="4RegistroDatosLaboral.resx">
       <DependentUpon>4RegistroDatosLaboral.cs</DependentUpon>

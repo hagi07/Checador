@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Mail;
 
 namespace Checador
 {
@@ -51,7 +52,11 @@ namespace Checador
                     PanelDatosPersonal panel = new PanelDatosPersonal(opcion,nivel,textBoxUsuario.Text, textBoxNombre.Text, textBoxEmailLaboral.Text, textBoxEmailPersonal.Text);
                     panel.Show();
                     this.Close();
-                }
+                    if (nivel == "Medio") 
+                    {
+                        SMTPMail("renehagi@gmail.com", "Actividades", "Se realizó la actividad de creación de usuario por " + usuario + ".", "general@elyongames.com", "develyon");
+                    }
+            }
 
             if (opcion == "Editar")
             {
@@ -64,6 +69,7 @@ namespace Checador
                 PanelDatosPersonal panel = new PanelDatosPersonal(opcion, nivel,textBoxUsuario.Text, textBoxNombre.Text, textBoxEmailLaboral.Text, textBoxEmailPersonal.Text);
                 panel.Show();
                 this.Close();
+               
             }         
         }
 
@@ -216,5 +222,36 @@ namespace Checador
                 System.IO.File.Copy(ac.DefaultExt + ac.FileName, @"Hagi\", true);
             }*/
         }
+
+        public void SMTPMail(string pDestino, string pAsunto, string pCuerpo, string pUsuario, string pPassword)
+        {
+            // Crear el Mail
+            using (System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage())
+            {
+                mail.To.Add(new System.Net.Mail.MailAddress(pDestino));
+                mail.From = new System.Net.Mail.MailAddress(pUsuario);
+                mail.Subject = pAsunto;
+                mail.SubjectEncoding = System.Text.Encoding.UTF8;
+                mail.Body = pCuerpo;
+                mail.BodyEncoding = System.Text.Encoding.UTF8;
+                mail.IsBodyHtml = false;
+
+                // Agregar el Adjunto si deseamos hacerlo
+                //mail.Attachments.Add(new Attachment(archivo));
+
+                // Configuración SMTP
+                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com", 587);
+
+                // Crear Credencial de Autenticacion
+                smtp.Credentials = new System.Net.NetworkCredential(pUsuario, pPassword);
+                smtp.EnableSsl = true;
+
+                try
+                { smtp.Send(mail); }
+                catch (Exception ex)
+                { throw ex; }
+            } // end using mail
+        } // end SMTPMail
+
     }
 }
