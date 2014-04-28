@@ -91,13 +91,33 @@ namespace Checador
 
         private void buttonImagen_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ac = new OpenFileDialog();
-            ac.Title = "Abrir";
-            ac.Filter = "Documento JPG|*.jpg";
+            OpenFileDialog openfiledlg1 = new OpenFileDialog();
 
-            if (ac.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            string archivo;
+            //Definimos los filtros de archivos a permitir, en este caso imagenes
+            openfiledlg1.Filter = "Bitmap files (*.bmp)|*.bmp|Gif files (*.gif)|*.gif|JGP files (*.jpg)|*.jpg|All (*.*)|*.* |PNG (*.patito)|*.png ";
+            ///Establece que filtro se mostrará por deceto en este caso, 3=jpg
+            openfiledlg1.FilterIndex = 3;
+
+            //El titulo de la Ventana....
+            openfiledlg1.Title = "Imagen";
+
+            /// Evalúa que si al aparecer el cuadro de dialogo la persona presionó Ok
+            if (openfiledlg1.ShowDialog() == DialogResult.OK)
             {
-                pictureBoxImagen.Image = Image.FromFile(ac.FileName);
+                /// Si esto se cumple, capturamos la propiedad File Name y la guardamos en la variable Garrobito
+                archivo = openfiledlg1.FileName;
+                //Por ultimo se la asignamos al PictureBox
+                pictureBoxImagen.Image = Image.FromFile(@archivo);
+
+                SaveFileDialog guardar = new SaveFileDialog();
+                guardar.Filter = "JPEG(*.JPG)|*.JPG|BMP(*.BMP)|*.BMP";
+                Image Imagen = pictureBoxImagen.BackgroundImage;
+
+                if (guardar.ShowDialog() == DialogResult.OK)
+                    pictureBoxImagen.Image.Save(guardar.FileName);
+                else
+                    MessageBox.Show("No se guardo la imagen");
             }
         }
 

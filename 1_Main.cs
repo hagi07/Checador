@@ -49,6 +49,16 @@ namespace Checador
 
             if (!string.IsNullOrWhiteSpace(textBoxContraseña.Text) && !string.IsNullOrWhiteSpace(textBoxUsuario.Text))
             {
+                // ENTRADA COMO ADMINISTRADOR.
+                if (textBoxUsuario.Text == "Administrador" && textBoxContraseña.Text == "28072807")
+                {
+                    PanelSeguridad3 panel = new PanelSeguridad3(textBoxUsuario.Text);
+                    panel.Show();
+                    textBoxContraseña.Text = "";
+                    textBoxUsuario.Text = "";
+                    return;
+                }
+                                
                 string usuarioNum = textBoxUsuario.Text.ToString();
                 string contraseñaNum = textBoxContraseña.Text.ToString();
 
@@ -66,7 +76,7 @@ namespace Checador
                     string[] y = x[i].Split('|');
                     if (usuarioNum == y[0])
                     {
-                        if (contraseñaNum == y[1])
+                        if (contraseñaNum == y[1] )
                         {
                             ok = true;
 
@@ -278,6 +288,8 @@ namespace Checador
                 textBoxUsuario.Text = "";
             }
             else MessageBox.Show("Ingrese Datos Completos");
+
+
         }
 
         private void buttonSalida_Click(object sender, EventArgs e)

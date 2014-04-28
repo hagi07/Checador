@@ -133,7 +133,7 @@ namespace Checador
                     file.Close();
                 }//FIN FOR
 
-                //SMTPMail("renehagi@gmail.com", "Concentrado", "", "renehagi@gmail.com", "ReNb3270", "Concentrado.elyon");
+                //SMTPMail("renehagi@gmail.com", "Concentrado", "", "checadorbugabuga@gmail.com", "ReNb3270", "Concentrado.elyon");
                 //File.Delete("Concentrado.elyon");
                 MessageBox.Show("Reporte mandado correctamente a correo.");
                 this.Close();

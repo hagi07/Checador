@@ -40,33 +40,36 @@ namespace Checador
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
 
-                System.IO.StreamReader fileReader = new System.IO.StreamReader("USU_ELYON.elyon");
-                string espacios = fileReader.ReadToEnd();
-                fileReader.Close();
+            System.IO.StreamReader fileReader = new System.IO.StreamReader("USU_ELYON.elyon");
+            string espacios = fileReader.ReadToEnd();
+            fileReader.Close();
 
-                string[] x = espacios.Split('\n');
-                bool ok = false;
+            string[] x = espacios.Split('\n');
+            bool ok = false;
 
-                for (int i = 0; i < x.Length; i++)
+            for (int i = 0; i < x.Length; i++)
+            {
+                string[] y = x[i].Split('|');
+                if (y[0] == listBox1.SelectedItem.ToString())
                 {
-                    string[] y = x[i].Split('|');
-                    if (y[0] == listBox1.SelectedItem.ToString())
-                    {
-                        ok = true;
-                    }
+                    ok = true;
                 }
-                if (ok == true && opcion == "Nuevo")
+            }
+
+            if (ok)
+            {
+                if (opcion == "Nuevo")
                 {
                     PanelRegistroDatosLaboral panel = new PanelRegistroDatosLaboral("Nuevo", listBox1.SelectedItem.ToString(), nivel);
                     panel.Show();
                     this.Close();
                 }
 
-                if (ok == true && opcion == "Editar")
+                if (opcion == "Editar")
                 {
-                    if (nivel == "Alto") 
-                    { 
-                        PanelRegistroDatosLaboral panel = new PanelRegistroDatosLaboral("Editar",usuario, "Alto");
+                    if (nivel == "Alto")
+                    {
+                        PanelRegistroDatosLaboral panel = new PanelRegistroDatosLaboral("Editar", usuario, "Alto");
                         panel.Show();
                     }
                     if (nivel == "Medio")
@@ -76,8 +79,13 @@ namespace Checador
                         panel.Show();
                     }
                 }
-                if (ok == false) MessageBox.Show("Usuario No Encontrado.");
-            
+                /*if (opcion == "Informacion")
+                {
+
+                }*/
+            }
+            if (!ok) MessageBox.Show("Usuario No Encontrado.");
+
 
         }
 

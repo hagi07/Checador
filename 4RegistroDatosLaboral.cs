@@ -117,9 +117,11 @@ namespace Checador
                     if (y[20] == "Despedido") radioButtonDespedido.Checked = true;
                     if (y[20] == "Recontratable") radioButtonRecontratable.Checked = true;
                     textBoxIMSS.Text = y[21];
+                    if (y[22] == "0") radioButtonActa0.Checked = true;
                     if (y[22] == "1") radioButtonActa1.Checked = true;
                     if (y[22] == "2") radioButtonActa2.Checked = true;
                     if (y[22] == "Plan") radioButtonActaPlan.Checked = true;
+                    if (y[23] == "0") radioButtonAvisos0.Checked = true;
                     if (y[23] == "1") radioButtonAvisos1.Checked = true;
                     if (y[23] == "2") radioButtonAvisos2.Checked = true;
                     if (y[23] == "3") radioButtonAvisos3.Checked = true;
@@ -156,9 +158,11 @@ namespace Checador
                 if (radioButtonHonorarios.Checked == true) regimen = "Honorarios";
                 if (radioButtonTurno24.Checked == true) turno = "24";
                 if (radioButtonTurno48.Checked == true) turno = "48";
+                if (radioButtonActa0.Checked == true) actas = "0";
                 if (radioButtonActa1.Checked == true) actas = "1";
                 if (radioButtonActa2.Checked == true) actas = "2";
                 if (radioButtonActaPlan.Checked == true) actas = "Plan";
+                if (radioButtonAvisos0.Checked == true) avisos = "0";
                 if (radioButtonAvisos1.Checked == true) avisos = "1";
                 if (radioButtonAvisos2.Checked == true) avisos = "2";
                 if (radioButtonAvisos3.Checked == true) avisos = "3";

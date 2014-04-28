@@ -35,7 +35,7 @@ namespace Checador
 
         private void buttonReportes_Click(object sender, EventArgs e)
         {
-            PanelReportes panel = new PanelReportes();
+            PanelReportes panel = new PanelReportes(usuario, "Alto");
             panel.Show();
         }
 
