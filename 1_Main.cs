@@ -13,7 +13,7 @@ namespace Checador
 {
     public partial class Main : Form
     {
-        
+        Util util = new Util();
         public Main()
         {
             InitializeComponent();
@@ -62,9 +62,8 @@ namespace Checador
                 string usuarioNum = textBoxUsuario.Text.ToString();
                 string contraseñaNum = textBoxContraseña.Text.ToString();
 
-                string espacios = textoDeArchivo("USU_ELYON.elyon");
 
-                string[] x = espacios.Split('\n');
+                string[] x = util.textoDeArchivoConSplit("USU_ELYON.elyon", '\n');
                 bool ok = false;
 
                 if (radioButtonComidaEntrada.Checked == false && radioButtonComidaSalida.Checked == false && radioButtonEntrada.Checked == false && radioButtonSalida.Checked == false && radioButtonInformacion.Checked == false)
@@ -74,218 +73,118 @@ namespace Checador
                 for (int i = 0; i < x.Length; i++)
                 {
                     string[] y = x[i].Split('|');
-                    if (usuarioNum == y[0])
+                    if (usuarioNum == y[0] && contraseñaNum == y[1])
                     {
-                        if (contraseñaNum == y[1] )
+                        ok = true;
+                        string[] lineas = util.textoDeArchivoConSplit("ASIS_ELYON.elyon", '\n');
+
+                        if (radioButtonEntrada.Checked == true)
                         {
-                            ok = true;
+                            bool okEntrada = util.validiarEntrada(lineas, textBoxUsuario.Text);
 
-                            if (radioButtonEntrada.Checked == true)
+                            if (okEntrada)
+                                MessageBox.Show("Ya estás registrado de entrada.");
+
+                            if (!okEntrada)
                             {
-                                string textoCompleto = textoDeArchivo("ASIS_ELYON.elyon");
-                                string[] lineas = textoCompleto.Split('\n');
-                                bool okEntrada = false;
+                                MessageBox.Show("Bienvenido " + y[2] + ".");
+                                util.escribirEnArchivo("ASIS_ELYON.elyon", DateTime.Now.ToString("dd/MM/yyyy") + "|" + textBoxUsuario.Text + "|" + DateTime.Now.ToString("HH:mm:ss") + "|" + "E" + "|");
+                            }
+                        }
 
-                                for (int j = 0; j < lineas.Length; j++)
-                                {
-                                    string[] linea = lineas[j].Split('|');
-                                    if (linea.Length >= 3)
-                                        if (linea[0] == textBoxUsuario.Text && linea[1] == DateTime.Now.ToString("dd/MM/yyyy") && linea[3] == "E")
-                                        {
-                                            MessageBox.Show("Ya estás registrado de entrada.");
-                                            okEntrada = true;
-                                        }
-                                }
+                        if (radioButtonComidaSalida.Checked == true)
+                        {
+                            bool okEntrada = util.validiarEntrada(lineas, textBoxUsuario.Text);
+                            bool okSalidaComer = util.validiarIrAComer(lineas, textBoxUsuario.Text);
+                            bool okSalida = util.validiarSalida(lineas, textBoxUsuario.Text);
 
-                                if (okEntrada == false)
-                                {
-                                    MessageBox.Show("Bienvenido " + y[2] + ".");
-                                    System.IO.StreamWriter file = new System.IO.StreamWriter("ASIS_ELYON.elyon", true);
-                                    string text = DateTime.Now.ToString("dd/MM/yyyy") + "|" + textBoxUsuario.Text + "|" + DateTime.Now.ToString("HH:mm:ss") + "|" + "E" + "|";
-                                    file.WriteLine(text);
-                                    file.Flush();
-                                    file.Close();
-                                }
+                            if (okEntrada == true && okSalidaComer == false && !okSalida)
+                            {
+                                MessageBox.Show("Provecho " + y[2] + ".");
+                                util.escribirEnArchivo("ASIS_ELYON.elyon", DateTime.Now.ToString("dd/MM/yyyy") + "|" + textBoxUsuario.Text + "|" + DateTime.Now.ToString("HH:mm:ss") + "|" + "CS" + "|");
                             }
 
-                            if (radioButtonComidaSalida.Checked == true)
+                            if (okSalidaComer) MessageBox.Show("Ya saliste a comer.");
+                            if (!okEntrada) MessageBox.Show("No has entrado aun.");
+                            if (okSalida && okEntrada) MessageBox.Show("Ya saliste hoy.");
+
+                        }
+
+                        if (radioButtonComidaEntrada.Checked == true)
+                        {
+                            bool okEntrada = util.validiarEntrada(lineas, textBoxUsuario.Text);
+                            bool okEntradaComer = util.validiarRegresoComer(lineas, textBoxUsuario.Text);
+                            bool okSalidaComer = util.validiarIrAComer(lineas, textBoxUsuario.Text);
+                            bool okSalida = util.validiarSalida(lineas, textBoxUsuario.Text);
+
+
+                            if (okSalidaComer && !okEntradaComer)
                             {
-                                string textoCompleto = textoDeArchivo("ASIS_ELYON.elyon");
-
-                                string[] lineas = textoCompleto.Split('\n');
-                                bool okEntrada = false;
-                                bool okSalidaComer = false;
-                                bool okSalida = false;
-
-                                okEntrada = validiarEntrada(lineas);
-                                okSalidaComer = validiarIrAComer(lineas);
-                                okSalida = validiarSalida(lineas);
-                                
-                                if (okEntrada == true && okSalidaComer == false && !okSalida)
-                                {
-                                    MessageBox.Show("Provecho " + y[2] + ".");
-                                    System.IO.StreamWriter file = new System.IO.StreamWriter("ASIS_ELYON.elyon", true);
-                                    string text = DateTime.Now.ToString("dd/MM/yyyy") + "|" + textBoxUsuario.Text + "|" + DateTime.Now.ToString("HH:mm:ss") + "|" + "CS" + "|";
-                                    file.WriteLine(text);
-                                    file.Flush();
-                                    file.Close();
-                                }
-
-                                if (okSalidaComer) MessageBox.Show("Ya saliste a comer.");
-                                if (!okEntrada) MessageBox.Show("No has entrado aun.");
-                                if (okSalida && okEntrada) MessageBox.Show("Ya saliste hoy.");
-
+                                MessageBox.Show("Bienvenido " + y[2] + ".");
+                                util.escribirEnArchivo("ASIS_ELYON.elyon", DateTime.Now.ToString("dd/MM/yyyy") + "|" + textBoxUsuario.Text + "|" + DateTime.Now.ToString("HH:mm:ss") + "|" + "CE" + "|");
                             }
 
-                            if (radioButtonComidaEntrada.Checked == true)
+                            if (okEntradaComer) MessageBox.Show("Ya regresaste de comer.");
+                            if (!okSalidaComer && !okSalida) MessageBox.Show("No has ido a comer aun.");
+                            if (okSalida && okEntrada) MessageBox.Show("Ya saliste hoy.");
+                        }
+
+
+
+
+                        if (radioButtonSalida.Checked == true)
+                        {
+                            bool okEntrada = util.validiarEntrada(lineas, textBoxUsuario.Text);
+                            bool okEntradaComer = util.validiarRegresoComer(lineas, textBoxUsuario.Text);
+                            bool okSalidaComer = util.validiarIrAComer(lineas, textBoxUsuario.Text);
+                            bool okSalida = util.validiarSalida(lineas, textBoxUsuario.Text);
+
+
+                            if (okEntrada)
                             {
-                                System.IO.StreamReader validationText = new System.IO.StreamReader("ASIS_ELYON.elyon");
-                                string textoCompleto = validationText.ReadToEnd();
-                                validationText.Close();
-
-                                string[] lineas = textoCompleto.Split('\n');
-                                bool okSalidaComer = false;
-                                bool okEntradaComer = false;
-                                bool okEntrada = false;
-                                bool okSalida = false;
-
-
-                                okEntrada = validiarEntrada(lineas);
-                                okSalidaComer = validiarIrAComer(lineas);
-                                okEntradaComer = validiarRegresoComer(lineas);
-                                okSalida = validiarSalida(lineas);
-
-
-
-                                if (okSalidaComer && !okEntradaComer)
+                                if (okSalidaComer)
                                 {
-                                    MessageBox.Show("Bienvenido " + y[2] + ".");
-                                    System.IO.StreamWriter file = new System.IO.StreamWriter("ASIS_ELYON.elyon", true);
-                                    string text = DateTime.Now.ToString("dd/MM/yyyy") + "|" + textBoxUsuario.Text + "|" + DateTime.Now.ToString("HH:mm:ss") + "|" + "CE" + "|";
-                                    file.WriteLine(text);
-                                    file.Flush();
-                                    file.Close();
-                                }
-
-                                if (okEntradaComer) MessageBox.Show("Ya regresaste de comer.");
-                                if (!okSalidaComer && !okSalida) MessageBox.Show("No has ido a comer aun.");
-                                if (okSalida && okEntrada) MessageBox.Show("Ya saliste hoy.");
-                            }
-
-
-
-
-                            if (radioButtonSalida.Checked == true)
-                            {
-                                System.IO.StreamReader validationText = new System.IO.StreamReader("ASIS_ELYON.elyon");
-                                string textoCompleto = validationText.ReadToEnd();
-                                validationText.Close();
-
-                                string[] lineas = textoCompleto.Split('\n');
-                                bool okEntrada = false;
-                                bool okSalidaComer = false;
-                                bool okEntradaComer = false;
-                                bool okSalida = false;
-
-
-                                for (int j = 0; j < lineas.Length; j++)
-                                {
-                                    string[] linea = lineas[j].Split('|');
-                                    if (linea.Length >= 3)
-                                        if (linea[0] == textBoxUsuario.Text && linea[1] == DateTime.Now.ToString("dd/MM/yyyy") && linea[3] == "E")
-                                        {
-                                            okEntrada = true;
-                                        }
-                                }
-
-
-                                for (int j = 0; j < lineas.Length; j++)
-                                {
-                                    string[] linea = lineas[j].Split('|');
-                                    if (linea.Length >= 3)
-                                        if (linea[0] == textBoxUsuario.Text && linea[1] == DateTime.Now.ToString("dd/MM/yyyy") && linea[3] == "CS")
-                                        {
-                                            okSalidaComer = true;
-                                        }
-                                }
-
-                                for (int j = 0; j < lineas.Length; j++)
-                                {
-                                    string[] linea = lineas[j].Split('|');
-                                    if (linea.Length >= 3)
-                                        if (linea[0] == textBoxUsuario.Text && linea[1] == DateTime.Now.ToString("dd/MM/yyyy") && linea[3] == "CE")
-                                        {
-                                            okEntradaComer = true;
-                                        }
-                                }
-
-                                for (int j = 0; j < lineas.Length; j++)
-                                {
-                                    string[] linea = lineas[j].Split('|');
-                                    if (linea.Length >= 3)
-                                        if (linea[0] == textBoxUsuario.Text && linea[1] == DateTime.Now.ToString("dd/MM/yyyy") && linea[3] == "S")
-                                        {
-                                            okSalida = true;
-                                        }
-                                }
-
-
-                                if (okEntrada)
-                                {
-                                    if (okSalidaComer)
-                                    {
-                                        if (!okEntradaComer) MessageBox.Show("No has regresado de comer.");
-                                        if (okEntradaComer && !okSalida)
-                                        {
-                                            MessageBox.Show("Adios " + y[2] + ".");
-                                            System.IO.StreamWriter file = new System.IO.StreamWriter("ASIS_ELYON.elyon", true);
-                                            string text = DateTime.Now.ToString("dd/MM/yyyy") + "|" + textBoxUsuario.Text + "|" + DateTime.Now.ToString("HH:mm:ss") + "|" + "S" + "|";
-                                            file.WriteLine(text);
-                                            file.Flush();
-                                            file.Close();
-                                        }
-                                    }
-                                    else if (!okSalida)
+                                    if (!okEntradaComer) MessageBox.Show("No has regresado de comer.");
+                                    if (okEntradaComer && !okSalida)
                                     {
                                         MessageBox.Show("Adios " + y[2] + ".");
-                                        System.IO.StreamWriter file = new System.IO.StreamWriter("ASIS_ELYON.elyon", true);
-                                        string text = DateTime.Now.ToString("dd/MM/yyyy") + "|" + textBoxUsuario.Text + "|" + DateTime.Now.ToString("HH:mm:ss") + "|" + "S" + "|";
-                                        file.WriteLine(text);
-                                        file.Flush();
-                                        file.Close();
+                                        util.escribirEnArchivo("ASIS_ELYON.elyon", DateTime.Now.ToString("dd/MM/yyyy") + "|" + textBoxUsuario.Text + "|" + DateTime.Now.ToString("HH:mm:ss") + "|" + "S" + "|");
                                     }
                                 }
-                                if (!okEntrada) MessageBox.Show("No has entrado aun.");
+                                else if (!okSalida)
+                                {
+                                    MessageBox.Show("Adios " + y[2] + ".");
+                                    util.escribirEnArchivo("ASIS_ELYON.elyon", DateTime.Now.ToString("dd/MM/yyyy") + "|" + textBoxUsuario.Text + "|" + DateTime.Now.ToString("HH:mm:ss") + "|" + "S" + "|");
+                                }
+                            }
+                            if (!okEntrada) MessageBox.Show("No has entrado aun.");
+                        }
 
-
+                        if (radioButtonInformacion.Checked == true)
+                        {
+                            if (y[3] == "Bajo")
+                            {
+                                PanelSeguridad1 panel = new PanelSeguridad1(textBoxUsuario.Text);
+                                panel.Show();
                             }
 
-                            if (radioButtonInformacion.Checked == true)
+                            if (y[3] == "Medio")
                             {
-                                if (y[3] == "Bajo")
-                                {
-                                    PanelSeguridad1 panel = new PanelSeguridad1(textBoxUsuario.Text);
-                                    panel.Show();
-                                }
+                                PanelSeguridad2 panel = new PanelSeguridad2(textBoxUsuario.Text);
+                                panel.Show();
+                            }
 
-                                if (y[3] == "Medio")
-                                {
-                                    PanelSeguridad2 panel = new PanelSeguridad2(textBoxUsuario.Text);
-                                    panel.Show();
-                                }
-
-                                if (y[3] == "Alto")
-                                {
-                                    PanelSeguridad3 panel = new PanelSeguridad3(textBoxUsuario.Text);
-                                    panel.Show();
-                                }
+                            if (y[3] == "Alto")
+                            {
+                                PanelSeguridad3 panel = new PanelSeguridad3(textBoxUsuario.Text);
+                                panel.Show();
                             }
                         }
                     }
-                }
+                }                
                 if (ok == false) MessageBox.Show("Usuario o Contraseña Incorrecta");
-                textBoxContraseña.Text = "";
-                textBoxUsuario.Text = "";
+                /*textBoxContraseña.Text = "";
+                textBoxUsuario.Text = "";*/
             }
             else MessageBox.Show("Ingrese Datos Completos");
 
@@ -300,74 +199,18 @@ namespace Checador
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //Timer.Text = DateTime.Now.ToLongTimeString();
             Hora.Text = DateTime.Now.ToLongTimeString();
             Dia_Fecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
-        private string textoDeArchivo(string archivo) {
-            System.IO.StreamReader fileReader = new System.IO.StreamReader(archivo);
-            string espacios = fileReader.ReadToEnd();
-            fileReader.Close();
-            return espacios;
-        }
 
-        private bool validiarEntrada(string[] lineas) 
-        {
-            for (int j = 0; j < lineas.Length; j++)
-            {
-                string[] linea = lineas[j].Split('|');
-                if (linea.Length >= 3)
-                    if (linea[0] == textBoxUsuario.Text && linea[1] == DateTime.Now.ToString("dd/MM/yyyy") && linea[3] == "E")
-                    {
-                        return true;
-                    }
-            }
-            return false;
-        }
+
+
     
-        private bool validiarIrAComer(string[] lineas)
-        {
-            for (int j = 0; j < lineas.Length; j++)
-            {
-                string[] linea = lineas[j].Split('|');
-                if (linea.Length >= 3)
-                    if (linea[0] == textBoxUsuario.Text && linea[1] == DateTime.Now.ToString("dd/MM/yyyy") && linea[3] == "CS")
-                    {
-                        return true;
-                    }
-            }
-            return false;
-        }
 
 
-        private bool validiarSalida(string[] lineas) 
-        {
-            for (int j = 0; j < lineas.Length; j++)
-            {
-                string[] linea = lineas[j].Split('|');
-                if (linea.Length >= 3)
-                    if (linea[0] == textBoxUsuario.Text && linea[1] == DateTime.Now.ToString("dd/MM/yyyy") && linea[3] == "S")
-                    {
-                        return true;
-                    }
-            }
-            return false;
-        }
 
-        private bool validiarRegresoComer(string[] lineas) 
-        {
-            for (int j = 0; j < lineas.Length; j++)
-            {
-                string[] linea = lineas[j].Split('|');
-                if (linea.Length >= 3)
-                    if (linea[0] == textBoxUsuario.Text && linea[1] == DateTime.Now.ToString("dd/MM/yyyy") && linea[3] == "CE")
-                    {
-                        return true;
-                    }
-            }
-            return false;
-        }
+
         
     }
 

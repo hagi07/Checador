@@ -138,3 +138,7 @@ C:\Users\Home\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.PanelFecha
 C:\Users\Home\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.Properties.Resources.resources
 C:\Users\Home\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.PanelDatosPersonal.resources
 C:\Users\Home\Google Drive\Elyon\Checador\Checador\obj\Debug\Checador.csproj.GenerateResource.Cache
+C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\bin\Debug\itextsharp.dll
+C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\bin\Debug\itextsharp.pdfa.dll
+C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\bin\Debug\itextsharp.xtra.dll
+C:\Users\Programacion\Google Drive\Elyon\Checador\Checador\bin\Debug\itextsharp.xml

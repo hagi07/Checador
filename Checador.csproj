@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Checador</RootNamespace>
     <AssemblyName>Checador</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -137,6 +138,7 @@
     <Compile Include="7ValidacionUsuario.Designer.cs">
       <DependentUpon>7ValidacionUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Util.cs" />
     <EmbeddedResource Include="0Fondo.resx">
       <DependentUpon>0Fondo.cs</DependentUpon>
     </EmbeddedResource>

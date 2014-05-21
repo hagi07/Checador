@@ -45,5 +45,11 @@ namespace Checador
             panel.Show();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PanelRegistroDatosLaboral panel = new PanelRegistroDatosLaboral("Editar", usuario, "Alto");
+            panel.Show();
+        }
+
     }
 }

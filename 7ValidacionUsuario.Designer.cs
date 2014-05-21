@@ -34,7 +34,7 @@
             // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(185, 66);
+            this.buttonAceptar.Location = new System.Drawing.Point(272, 63);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
             this.buttonAceptar.TabIndex = 6;
@@ -47,14 +47,14 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(23, 25);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(146, 121);
+            this.listBox1.Size = new System.Drawing.Size(234, 121);
             this.listBox1.TabIndex = 7;
             // 
             // PanelValidacionUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 162);
+            this.ClientSize = new System.Drawing.Size(369, 162);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.buttonAceptar);
             this.Name = "PanelValidacionUsuario";

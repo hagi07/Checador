@@ -32,7 +32,6 @@
             this.pictureBoxImagen = new System.Windows.Forms.PictureBox();
             this.labelNombre = new System.Windows.Forms.Label();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.buttonImagen = new System.Windows.Forms.Button();
             this.textBoxCURP = new System.Windows.Forms.TextBox();
             this.labelCURP = new System.Windows.Forms.Label();
             this.textBoxRFC = new System.Windows.Forms.TextBox();
@@ -59,8 +58,6 @@
             this.labelEmailLaboral = new System.Windows.Forms.Label();
             this.textBoxEmailPersonal = new System.Windows.Forms.TextBox();
             this.labelEmailPersonal = new System.Windows.Forms.Label();
-            this.buttonImagenFirma = new System.Windows.Forms.Button();
-            this.pictureBoxImagenFirma = new System.Windows.Forms.PictureBox();
             this.buttonAceptar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.textBoxNumeroDeEmergencia = new System.Windows.Forms.TextBox();
@@ -79,8 +76,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxStatusFamiliar = new System.Windows.Forms.TextBox();
             this.labelStatusFamiliar = new System.Windows.Forms.Label();
+            this.buttonAtras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagenFirma)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -93,10 +90,10 @@
             // 
             // pictureBoxImagen
             // 
-            this.pictureBoxImagen.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxImagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxImagen.Location = new System.Drawing.Point(13, 13);
+            this.pictureBoxImagen.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxImagen.Name = "pictureBoxImagen";
-            this.pictureBoxImagen.Size = new System.Drawing.Size(179, 146);
+            this.pictureBoxImagen.Size = new System.Drawing.Size(141, 146);
             this.pictureBoxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxImagen.TabIndex = 0;
             this.pictureBoxImagen.TabStop = false;
@@ -114,26 +111,15 @@
             // textBoxNombre
             // 
             this.textBoxNombre.Location = new System.Drawing.Point(93, 176);
-            this.textBoxNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNombre.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(295, 22);
             this.textBoxNombre.TabIndex = 3;
             // 
-            // buttonImagen
-            // 
-            this.buttonImagen.Location = new System.Drawing.Point(213, 117);
-            this.buttonImagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonImagen.Name = "buttonImagen";
-            this.buttonImagen.Size = new System.Drawing.Size(100, 28);
-            this.buttonImagen.TabIndex = 4;
-            this.buttonImagen.Text = "Imagen";
-            this.buttonImagen.UseVisualStyleBackColor = true;
-            this.buttonImagen.Click += new System.EventHandler(this.buttonImagen_Click);
-            // 
             // textBoxCURP
             // 
             this.textBoxCURP.Location = new System.Drawing.Point(93, 208);
-            this.textBoxCURP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCURP.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCURP.Name = "textBoxCURP";
             this.textBoxCURP.Size = new System.Drawing.Size(295, 22);
             this.textBoxCURP.TabIndex = 14;
@@ -151,7 +137,7 @@
             // textBoxRFC
             // 
             this.textBoxRFC.Location = new System.Drawing.Point(93, 240);
-            this.textBoxRFC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxRFC.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxRFC.Name = "textBoxRFC";
             this.textBoxRFC.Size = new System.Drawing.Size(295, 22);
             this.textBoxRFC.TabIndex = 16;
@@ -169,7 +155,7 @@
             // textBoxCelular
             // 
             this.textBoxCelular.Location = new System.Drawing.Point(93, 272);
-            this.textBoxCelular.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCelular.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCelular.Name = "textBoxCelular";
             this.textBoxCelular.Size = new System.Drawing.Size(295, 22);
             this.textBoxCelular.TabIndex = 19;
@@ -187,7 +173,7 @@
             // textBoxTelefono
             // 
             this.textBoxTelefono.Location = new System.Drawing.Point(93, 304);
-            this.textBoxTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTelefono.Name = "textBoxTelefono";
             this.textBoxTelefono.Size = new System.Drawing.Size(295, 22);
             this.textBoxTelefono.TabIndex = 21;
@@ -205,7 +191,7 @@
             // textBoxDireccion
             // 
             this.textBoxDireccion.Location = new System.Drawing.Point(93, 336);
-            this.textBoxDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDireccion.Multiline = true;
             this.textBoxDireccion.Name = "textBoxDireccion";
             this.textBoxDireccion.Size = new System.Drawing.Size(403, 75);
@@ -235,7 +221,7 @@
             // 
             this.radioButtonMasculino.AutoSize = true;
             this.radioButtonMasculino.Location = new System.Drawing.Point(95, 425);
-            this.radioButtonMasculino.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonMasculino.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonMasculino.Name = "radioButtonMasculino";
             this.radioButtonMasculino.Size = new System.Drawing.Size(92, 21);
             this.radioButtonMasculino.TabIndex = 25;
@@ -247,7 +233,7 @@
             // 
             this.radioButtonFemenino.AutoSize = true;
             this.radioButtonFemenino.Location = new System.Drawing.Point(200, 425);
-            this.radioButtonFemenino.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonFemenino.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonFemenino.Name = "radioButtonFemenino";
             this.radioButtonFemenino.Size = new System.Drawing.Size(91, 21);
             this.radioButtonFemenino.TabIndex = 26;
@@ -258,7 +244,7 @@
             // textBoxNacFecha1
             // 
             this.textBoxNacFecha1.Location = new System.Drawing.Point(159, 485);
-            this.textBoxNacFecha1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNacFecha1.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNacFecha1.MaxLength = 2;
             this.textBoxNacFecha1.Name = "textBoxNacFecha1";
             this.textBoxNacFecha1.Size = new System.Drawing.Size(32, 22);
@@ -277,7 +263,7 @@
             // textBoxNacFecha2
             // 
             this.textBoxNacFecha2.Location = new System.Drawing.Point(200, 485);
-            this.textBoxNacFecha2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNacFecha2.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNacFecha2.MaxLength = 2;
             this.textBoxNacFecha2.Name = "textBoxNacFecha2";
             this.textBoxNacFecha2.Size = new System.Drawing.Size(32, 22);
@@ -286,7 +272,7 @@
             // textBoxNacFecha3
             // 
             this.textBoxNacFecha3.Location = new System.Drawing.Point(241, 485);
-            this.textBoxNacFecha3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNacFecha3.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNacFecha3.MaxLength = 2;
             this.textBoxNacFecha3.Name = "textBoxNacFecha3";
             this.textBoxNacFecha3.Size = new System.Drawing.Size(32, 22);
@@ -305,7 +291,7 @@
             // textBoxLugarDeNacimiento
             // 
             this.textBoxLugarDeNacimiento.Location = new System.Drawing.Point(159, 453);
-            this.textBoxLugarDeNacimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxLugarDeNacimiento.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxLugarDeNacimiento.Name = "textBoxLugarDeNacimiento";
             this.textBoxLugarDeNacimiento.Size = new System.Drawing.Size(337, 22);
             this.textBoxLugarDeNacimiento.TabIndex = 32;
@@ -333,7 +319,7 @@
             // textBoxEdad
             // 
             this.textBoxEdad.Location = new System.Drawing.Point(59, 517);
-            this.textBoxEdad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEdad.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEdad.MaxLength = 2;
             this.textBoxEdad.Name = "textBoxEdad";
             this.textBoxEdad.Size = new System.Drawing.Size(36, 22);
@@ -342,7 +328,7 @@
             // textBoxEmailLaboral
             // 
             this.textBoxEmailLaboral.Location = new System.Drawing.Point(113, 549);
-            this.textBoxEmailLaboral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEmailLaboral.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEmailLaboral.Name = "textBoxEmailLaboral";
             this.textBoxEmailLaboral.Size = new System.Drawing.Size(295, 22);
             this.textBoxEmailLaboral.TabIndex = 37;
@@ -360,7 +346,7 @@
             // textBoxEmailPersonal
             // 
             this.textBoxEmailPersonal.Location = new System.Drawing.Point(113, 581);
-            this.textBoxEmailPersonal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEmailPersonal.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEmailPersonal.Name = "textBoxEmailPersonal";
             this.textBoxEmailPersonal.Size = new System.Drawing.Size(295, 22);
             this.textBoxEmailPersonal.TabIndex = 39;
@@ -375,30 +361,10 @@
             this.labelEmailPersonal.TabIndex = 38;
             this.labelEmailPersonal.Text = "Email Personal";
             // 
-            // buttonImagenFirma
-            // 
-            this.buttonImagenFirma.Location = new System.Drawing.Point(372, 746);
-            this.buttonImagenFirma.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonImagenFirma.Name = "buttonImagenFirma";
-            this.buttonImagenFirma.Size = new System.Drawing.Size(100, 28);
-            this.buttonImagenFirma.TabIndex = 41;
-            this.buttonImagenFirma.Text = "Imagen";
-            this.buttonImagenFirma.UseVisualStyleBackColor = true;
-            // 
-            // pictureBoxImagenFirma
-            // 
-            this.pictureBoxImagenFirma.Location = new System.Drawing.Point(12, 628);
-            this.pictureBoxImagenFirma.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBoxImagenFirma.Name = "pictureBoxImagenFirma";
-            this.pictureBoxImagenFirma.Size = new System.Drawing.Size(327, 146);
-            this.pictureBoxImagenFirma.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxImagenFirma.TabIndex = 40;
-            this.pictureBoxImagenFirma.TabStop = false;
-            // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(443, 796);
-            this.buttonAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonAceptar.Location = new System.Drawing.Point(470, 641);
+            this.buttonAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(100, 28);
             this.buttonAceptar.TabIndex = 42;
@@ -408,8 +374,8 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(596, 796);
-            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCancelar.Location = new System.Drawing.Point(600, 641);
+            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(100, 28);
             this.buttonCancelar.TabIndex = 43;
@@ -420,7 +386,7 @@
             // textBoxNumeroDeEmergencia
             // 
             this.textBoxNumeroDeEmergencia.Location = new System.Drawing.Point(732, 208);
-            this.textBoxNumeroDeEmergencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNumeroDeEmergencia.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNumeroDeEmergencia.Name = "textBoxNumeroDeEmergencia";
             this.textBoxNumeroDeEmergencia.Size = new System.Drawing.Size(295, 22);
             this.textBoxNumeroDeEmergencia.TabIndex = 45;
@@ -438,7 +404,7 @@
             // textBoxTipoDeSangre
             // 
             this.textBoxTipoDeSangre.Location = new System.Drawing.Point(680, 176);
-            this.textBoxTipoDeSangre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxTipoDeSangre.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTipoDeSangre.Name = "textBoxTipoDeSangre";
             this.textBoxTipoDeSangre.Size = new System.Drawing.Size(295, 22);
             this.textBoxTipoDeSangre.TabIndex = 47;
@@ -456,7 +422,7 @@
             // textBoxContactoDeEmergencia
             // 
             this.textBoxContactoDeEmergencia.Location = new System.Drawing.Point(740, 240);
-            this.textBoxContactoDeEmergencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxContactoDeEmergencia.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxContactoDeEmergencia.Name = "textBoxContactoDeEmergencia";
             this.textBoxContactoDeEmergencia.Size = new System.Drawing.Size(295, 22);
             this.textBoxContactoDeEmergencia.TabIndex = 49;
@@ -474,7 +440,7 @@
             // textBoxParentesco
             // 
             this.textBoxParentesco.Location = new System.Drawing.Point(668, 272);
-            this.textBoxParentesco.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxParentesco.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxParentesco.Name = "textBoxParentesco";
             this.textBoxParentesco.Size = new System.Drawing.Size(295, 22);
             this.textBoxParentesco.TabIndex = 51;
@@ -492,7 +458,7 @@
             // textBoxDireccionDelContacto
             // 
             this.textBoxDireccionDelContacto.Location = new System.Drawing.Point(732, 304);
-            this.textBoxDireccionDelContacto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxDireccionDelContacto.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDireccionDelContacto.Multiline = true;
             this.textBoxDireccionDelContacto.Name = "textBoxDireccionDelContacto";
             this.textBoxDireccionDelContacto.Size = new System.Drawing.Size(345, 56);
@@ -511,7 +477,7 @@
             // textBoxOtrasOcupaciones
             // 
             this.textBoxOtrasOcupaciones.Location = new System.Drawing.Point(705, 368);
-            this.textBoxOtrasOcupaciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxOtrasOcupaciones.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxOtrasOcupaciones.Multiline = true;
             this.textBoxOtrasOcupaciones.Name = "textBoxOtrasOcupaciones";
             this.textBoxOtrasOcupaciones.Size = new System.Drawing.Size(372, 90);
@@ -530,7 +496,7 @@
             // textBoxEstadoCivil
             // 
             this.textBoxEstadoCivil.Location = new System.Drawing.Point(668, 466);
-            this.textBoxEstadoCivil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEstadoCivil.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEstadoCivil.Name = "textBoxEstadoCivil";
             this.textBoxEstadoCivil.Size = new System.Drawing.Size(295, 22);
             this.textBoxEstadoCivil.TabIndex = 57;
@@ -548,7 +514,7 @@
             // textBoxStatusFamiliar
             // 
             this.textBoxStatusFamiliar.Location = new System.Drawing.Point(668, 498);
-            this.textBoxStatusFamiliar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxStatusFamiliar.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxStatusFamiliar.Multiline = true;
             this.textBoxStatusFamiliar.Name = "textBoxStatusFamiliar";
             this.textBoxStatusFamiliar.Size = new System.Drawing.Size(409, 106);
@@ -564,12 +530,24 @@
             this.labelStatusFamiliar.TabIndex = 58;
             this.labelStatusFamiliar.Text = "Status Familiar";
             // 
+            // buttonAtras
+            // 
+            this.buttonAtras.Location = new System.Drawing.Point(339, 641);
+            this.buttonAtras.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAtras.Name = "buttonAtras";
+            this.buttonAtras.Size = new System.Drawing.Size(100, 28);
+            this.buttonAtras.TabIndex = 60;
+            this.buttonAtras.Text = "Atrás";
+            this.buttonAtras.UseVisualStyleBackColor = true;
+            this.buttonAtras.Click += new System.EventHandler(this.buttonAtras_Click);
+            // 
             // PanelDatosPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1112, 839);
+            this.ClientSize = new System.Drawing.Size(1112, 688);
+            this.Controls.Add(this.buttonAtras);
             this.Controls.Add(this.textBoxStatusFamiliar);
             this.Controls.Add(this.labelStatusFamiliar);
             this.Controls.Add(this.textBoxEstadoCivil);
@@ -588,8 +566,6 @@
             this.Controls.Add(this.labelNumeroDeEmergencia);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAceptar);
-            this.Controls.Add(this.buttonImagenFirma);
-            this.Controls.Add(this.pictureBoxImagenFirma);
             this.Controls.Add(this.textBoxEmailPersonal);
             this.Controls.Add(this.labelEmailPersonal);
             this.Controls.Add(this.textBoxEmailLaboral);
@@ -616,12 +592,11 @@
             this.Controls.Add(this.labelRFC);
             this.Controls.Add(this.textBoxCURP);
             this.Controls.Add(this.labelCURP);
-            this.Controls.Add(this.buttonImagen);
             this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.pictureBoxImagen);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PanelDatosPersonal";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -629,7 +604,6 @@
             this.TopMost = true;
             this.Load += new System.EventHandler(this.PanelDatosPersonal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagenFirma)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -641,7 +615,6 @@
         private System.Windows.Forms.PictureBox pictureBoxImagen;
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.TextBox textBoxNombre;
-        private System.Windows.Forms.Button buttonImagen;
         private System.Windows.Forms.TextBox textBoxCURP;
         private System.Windows.Forms.Label labelCURP;
         private System.Windows.Forms.TextBox textBoxRFC;
@@ -668,8 +641,6 @@
         private System.Windows.Forms.Label labelEmailLaboral;
         private System.Windows.Forms.TextBox textBoxEmailPersonal;
         private System.Windows.Forms.Label labelEmailPersonal;
-        private System.Windows.Forms.Button buttonImagenFirma;
-        private System.Windows.Forms.PictureBox pictureBoxImagenFirma;
         private System.Windows.Forms.Button buttonAceptar;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.TextBox textBoxNumeroDeEmergencia;
@@ -688,5 +659,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxStatusFamiliar;
         private System.Windows.Forms.Label labelStatusFamiliar;
+        private System.Windows.Forms.Button buttonAtras;
     }
 }
